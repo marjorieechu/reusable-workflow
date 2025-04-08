@@ -1,0 +1,11 @@
+warn_list: []
+
+skip_list:
+  - yaml[line-length]
+  - yaml[trailing-spaces]
+  - yaml[new-line-at-end-of-file]
+
+exclude_paths:
+  - playbooks/legacy/
+
+min_ansible_version: "2.12"
