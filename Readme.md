@@ -9,6 +9,9 @@ on:
       - main
       - develop
       - 'feature/**'
+  pull_request:
+    branches:
+      - main  
 
 jobs:
   call-devops-repo:
@@ -16,7 +19,29 @@ jobs:
     secrets:
       GIT_CLONE_USER: ${{ secrets.GIT_CLONE_USER }}
       GIT_CLONE_TOKEN: ${{ secrets.GIT_CLONE_TOKEN }}
-      
+
+OR
+
+# .github/templates/ansible-lint.yml
+
+name: Reuse DevOps Workflow
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - 'feature/**'
+  pull_request:
+    branches:
+      - main  
+
+jobs:
+  call-devops-repo:
+    uses: WEBFORX/connect-reusable-workflow/.github/templates/ansible-lint.yml@main
+    secrets:
+      GIT_CLONE_USER: ${{ secrets.GIT_CLONE_USER }}
+      GIT_CLONE_TOKEN: ${{ secrets.GIT_CLONE_TOKEN }}    
 
 
 # Usage Guide
